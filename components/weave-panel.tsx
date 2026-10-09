@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 const weaveLines = [
   {
     d: "M-90 210C40 196 150 72 286 108S520 188 760 48",
@@ -63,14 +65,16 @@ export function WeavePanel({ className = "" }: WeavePanelProps) {
             key={line.d}
             className="weave-line"
             d={line.d}
-            style={{
-              opacity: line.opacity,
-              animationDuration: line.duration,
-              "--from-x": line.fromX,
-              "--from-y": line.fromY,
-              "--to-x": line.toX,
-              "--to-y": line.toY,
-            }}
+            style={
+              {
+                opacity: line.opacity,
+                animationDuration: line.duration,
+                "--from-x": line.fromX,
+                "--from-y": line.fromY,
+                "--to-x": line.toX,
+                "--to-y": line.toY,
+              } as CSSProperties
+            }
           />
         ))}
       </svg>
